@@ -1,0 +1,55 @@
+ul {
+    list-style: none;
+    padding: 0;
+}
+p {
+    margin: 0;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.header {
+    margin: -10px;
+    padding: 10px;
+    background: whitesmoke;
+    display: flex;
+}
+.header__logo {
+}
+.nav {
+}
+.nav__list {
+    margin-left: 20px;
+    display: flex;
+    gap: 1em;
+}
+.nav__link:hover {
+    text-decoration: underline;
+}
+.body__title {
+    text-align: center;
+}
+.news {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.news__item {
+    padding: 10px;
+    border: 1px grey solid;
+    border-radius: 5px;
+    box-shadow: 0 0 5px;
+}
+.news__title {
+    font-size: 1.25em;
+}.news__about {
+    margin: 0.2em 0;
+ }
+.news__date {
+    text-align: right;
+}
+.article__date {
+    margin: 2em 0;
+}

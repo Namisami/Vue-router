@@ -1,18 +1,39 @@
+
+
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <header class="header">
+      <img class="header__logo" height="50" src="@/assets/Politech.png" alt="Лого политеха">
+      <nav class="header__nav nav">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <router-link class="nav__link" :to="{ name: 'main' }">Main page</router-link>
+          </li>
+          <li class="nav__item">
+            <router-link class="nav__link" :to="{ name: 'about' }">About us</router-link>
+          </li>
+          <li class="nav__item">
+            <router-link class="nav__link" :to="{ name: 'news' }">News</router-link>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <router-view></router-view>
+
+    <news-list v-if="$route.path == '/news'"></news-list>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import '@/css/style.css'
+import newsList from "@/components/NewsList";
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    'newsList': newsList,
+  },
 }
 </script>
 
@@ -21,8 +42,6 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
