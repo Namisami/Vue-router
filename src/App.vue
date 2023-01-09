@@ -1,47 +1,64 @@
-
-
 <template>
-  <div id="app">
-    <header class="header">
-      <img class="header__logo" height="50" src="@/assets/Politech.png" alt="Лого политеха">
+  <v-app>
+    <v-app-bar
+      app
+    >
+      <v-img
+          max-height="60"
+          max-width="220"
+        :src="`/images/Politech.png`"
+          class="mr-4"
+      >
+      </v-img>
+<!--      <img class="header__logo" height="50" src="../images/Politech.png" alt="Лого политеха">-->
       <nav class="header__nav nav">
-        <ul class="nav__list">
-          <li class="nav__item">
-            <router-link class="nav__link" :to="{ name: 'main' }">Main page</router-link>
-          </li>
-          <li class="nav__item">
-            <router-link class="nav__link" :to="{ name: 'about' }">About us</router-link>
-          </li>
-          <li class="nav__item">
-            <router-link class="nav__link" :to="{ name: 'news' }">News</router-link>
-          </li>
-        </ul>
+        <v-tabs
+          background-color="#f5f5f5"
+        >
+          <v-tab to="/">
+<!--            <router-link class="nav__link" :to="{ name: 'main' }">Main page</router-link>-->
+            Main page
+          </v-tab>
+          <v-tab to="/about">
+<!--            <router-link class="nav__link" :to="{ name: 'about' }">About us</router-link>-->
+            About us
+          </v-tab>
+          <v-tab to="/news">
+<!--            <router-link class="nav__link" :to="{ name: 'news' }">News</router-link>-->
+            News
+          </v-tab>
+        </v-tabs>
       </nav>
-    </header>
-
-    <router-view></router-view>
-
-    <news-list v-if="$route.path == '/news'"></news-list>
-  </div>
+    </v-app-bar>
+    <v-main>
+      <router-view></router-view>
+      <news-list v-if="$route.path == '/news'"></news-list>
+    </v-main>
+  </v-app>
 </template>
 
 <script>
-import '@/css/style.css'
-import newsList from "@/components/NewsList";
+import NewsList from "@/components/NewsList";
 
 export default {
   name: 'App',
   components: {
-    'newsList': newsList,
+    NewsList,
   },
-}
+  methods: {
+    // showCount() {
+    //   console.log(this)
+    //   this.$store.commit('increment')
+    //   console.log(this.$store.state.count)
+    // },
+  },
+  computed: {
+    // count() {
+    //   return this.$store.state.count;
+    // }
+  },
+  mounted: function () {
+    this.$store.dispatch('loadNews');
+  }
+};
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
-}
-</style>

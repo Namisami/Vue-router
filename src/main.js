@@ -1,12 +1,19 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import Vuetify from "vuetify";
+import vuetify from './plugins/vuetify'
+
+import { store } from './store';
+
 import App from './App.vue'
+
 import aboutPage from "@/pages/about";
 import newsPage from "@/pages/news";
 import mainPage from "@/pages/main";
 import articleElement from "@/components/ArticleElement";
 
 Vue.use(VueRouter)
+Vue.use(Vuetify)
 
 Vue.config.productionTip = false
 
@@ -22,6 +29,8 @@ const router = new VueRouter({
 })
 
 new Vue({
+  store,
   router,
+  vuetify,
   render: h => h(App),
 }).$mount('#app')

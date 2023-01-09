@@ -7,7 +7,7 @@ import ArticleElement from "@/components/ArticleElement";
 
 export default {
   props: ['articleId'],
-  name: "article",
+  name: "articleElement",
   components: {
     'article': ArticleElement,
   },

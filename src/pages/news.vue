@@ -1,5 +1,5 @@
 <template>
-  <h1 class="body__title">News page</h1>
+  <h1 class="text-center">News page</h1>
 </template>
 
 <script>
